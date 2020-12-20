@@ -1,7 +1,9 @@
 const express = require('express');
-const controller = require('../controller');
+const {auth: {me, register, login} } = require('../controller'); // object destructuring
 
 const router = express.Router();
-router.post('/signup', controller.auth.register);
-router.post('/login', controller.auth.login)
+router.post('/signup', register);
+router.get('/me', me);
+
+router.post('/login', login)
 module.exports = router;
